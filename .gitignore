@@ -11,7 +11,7 @@ node_modules
 .DS_Store
 dist
 *.local
-.pnpm-leock.yaml
+pnpm-lock.yaml
 
 # Editor directories and files
 .idea
