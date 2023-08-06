@@ -38,7 +38,7 @@ const show = ref(true);
   <up-button type="primary" text="确定"></up-button>
   <up-button type="primary" :plain="true" text="镂空"></up-button>
   <up-button type="primary" :plain="true" :hairline="true" text="细边"></up-button>
-  <up-button type="primary" :disabled="disabled" text="禁用"></up-button>
+  <up-button type="primary" :disabled="show" text="禁用"></up-button>
   <up-button type="primary" loading loadingText="加载中"></up-button>
   <up-button type="primary" icon="map" text="图标按钮"></up-button>
   <up-button type="primary" shape="circle" text="按钮形状"></up-button>
