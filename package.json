@@ -52,6 +52,7 @@
     "@dcloudio/uni-mp-toutiao": "3.0.0-3080720230703001",
     "@dcloudio/uni-mp-weixin": "3.0.0-3080720230703001",
     "@dcloudio/uni-quickapp-webview": "3.0.0-3080720230703001",
+    "@ttou/uview-typings": "^2.0.5",
     "vue": "^3.3.4",
     "vue-demi": "^0.14.5",
     "vue-i18n": "^9.2.2"

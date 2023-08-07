@@ -12,7 +12,7 @@ node_modules
 dist
 *.local
 pnpm-lock.yaml
-
+.hbuilderx
 # Editor directories and files
 .idea
 *.suo

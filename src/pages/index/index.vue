@@ -1,6 +1,5 @@
 <script setup lang="ts">
 const http = uni.$u.http;
-console.log("🥜[http]:", http);
 
 import { useCounterStore } from "@/stores/counter";
 

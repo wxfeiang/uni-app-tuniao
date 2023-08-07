@@ -44,6 +44,9 @@ dependencies:
   '@dcloudio/uni-quickapp-webview':
     specifier: 3.0.0-3080720230703001
     version: 3.0.0-3080720230703001(postcss@8.4.27)(vue@3.3.4)
+  '@ttou/uview-typings':
+    specifier: ^2.0.5
+    version: 2.0.5
   vue:
     specifier: ^3.3.4
     version: 3.3.4
@@ -2995,6 +2998,10 @@ packages:
     resolution: {integrity: sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==}
     engines: {node: '>= 6'}
     dev: true
+
+  /@ttou/uview-typings@2.0.5:
+    resolution: {integrity: sha512-yyxEWWFcgKcEWkWB/riCXInjQs8gMKRBtaWarFyOZfvCmnEYSjqdtUppINpvRNbdJsV2kxNDeH8PsJ8FBovHBg==}
+    dev: false
 
   /@types/babel__core@7.20.1:
     resolution: {integrity: sha512-aACu/U/omhdk15O4Nfb+fHgH/z3QsfQzpnvRZhYhThms83ZnAOZz7zZAWO7mn2yyNQaA4xTO8GLK3uqFU4bYYw==}
