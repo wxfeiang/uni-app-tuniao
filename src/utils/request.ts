@@ -13,6 +13,17 @@ const requestInterceptors = () => {
       config.data = config.data || {}
       // 可以在此通过vm引用vuex中的变量，具体值在vm.$store.state中
       // console.log(vm.$store.state);
+      // 演示custom 用处
+      // if (config.custom.auth) {
+      //   config.header.token = 'token'
+      // }
+      // if (config.custom.loading) {
+      //  uni.showLoading()
+      // }
+      // 演示
+      // if (!token) { // 如果token不存在，return Promise.reject(config) 会取消本次请求
+      // 	return Promise.reject(config)
+      // }
       return config
     },
     (

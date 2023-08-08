@@ -14,7 +14,8 @@
     "types": [
       "@dcloudio/types",
       "@ttou/uview-typings/v26",
-      "@ttou/uview-typings/refs"
+      "@ttou/uview-typings/refs",
+      "pinia-plugin-persist-uni"
     ],
     "baseUrl": ".",
     "paths": {
