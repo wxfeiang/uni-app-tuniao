@@ -14,7 +14,7 @@ interface configType {
 }
 
 const config: configType = {
-  baseURL: "", //存环境变量中取
+  baseURL: import.meta.env.VITE_BASE_API, //存环境变量中取
   header: {},
   method: "GET",
   dataType: "json",

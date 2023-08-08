@@ -10,8 +10,7 @@ export function createApp() {
   // 引入请求封装
   app.use(Pinia.createPinia())
   app.use(uviewPlus)
-  initRequest(app)
-
+  initRequest()
   return {
     app,
     Pinia
