@@ -15,10 +15,7 @@ export default () => {
     if (expire) {
       cache.expire = new Date().getTime() + expire * 1000
     }
-
-    try {
-      uni.setStorageSync(key, cache)
-    } catch (e) {}
+    uni.setStorageSync(key, cache)
   }
 
   /**
@@ -28,26 +25,17 @@ export default () => {
    * @returns
    */
   function get(key: string, defaultValue: any = null): any {
-    // const cacheStore = localStorage.getItem(key)
-    // if (cacheStore) {
-    //   const cache = JSON.parse(cacheStore)
-    //   const expire = cache?.expire
-    //   if (expire && expire < new Date().getTime()) {
-    //     localStorage.removeItem(key)
-    //     return defaultValue
-    //   }
-    //   return cache.data
-    // }
-    // return defaultValue
-
-    try {
-      const value = uni.getStorageSync(key)
-      if (value) {
-        return value
+    const cacheStore = uni.getStorageSync(key)
+    if (cacheStore) {
+      const cache = JSON.parse(cacheStore)
+      const expire = cache?.expire
+      if (expire && expire < new Date().getTime()) {
+        uni.removeStorageSync(key)
+        return defaultValue
       }
-    } catch (e) {
-      // error
+      return cache.data
     }
+    return defaultValue
   }
 
   /**
@@ -55,22 +43,14 @@ export default () => {
    * @param key 缓存KEY
    */
   function remove(key: string) {
-    try {
-      uni.removeStorageSync(key)
-    } catch (e) {
-      // error
-    }
+    uni.removeStorageSync(key)
   }
   /**
    * 删除全部
    * @param key 缓存KEY
    */
   function removeAll(key: string) {
-    try {
-      uni.clearStorageSync()
-    } catch (e) {
-      // error
-    }
+    uni.clearStorageSync()
   }
 
   return { set, get, remove }

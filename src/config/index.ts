@@ -22,7 +22,10 @@ const config: configType = {
   responseType: "text",
   // #endif
   // 注：如果局部custom与全局custom有同名属性，则后面的属性会覆盖前面的属性，相当于Object.assign(全局，局部)
-  custom: {}, // 全局自定义参数默认值
+  custom: {
+    //   loading: false    // 默认所有的请求都不带加载状态
+    //   auth :  false  //  默认所有的请求都不带token
+  }, // 全局自定义参数默认值
   // #ifdef H5 || APP-PLUS || MP-ALIPAY || MP-WEIXIN
   timeout: 60000,
   // #endif

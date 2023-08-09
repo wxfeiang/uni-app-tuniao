@@ -1,12 +1,10 @@
 <script setup lang="ts">
-import { useCounterStore } from "@/stores/counter";
-
-const { postMenu, test } = useAuth();
-
-const counter = useCounterStore();
-counter.count++;
+const { Login, userInfo, getToken } = useAuth();
 </script>
 <template>
-  <up-button type="primary" text="测试登录" @click="postMenu"></up-button>
-  {{ test }}
+  <up-button type="primary" text="测试登录" @click="Login"></up-button>
+  <view> 用户名 : {{ userInfo.name }} </view>
+  <view> 用户ID : {{ userInfo.id }} </view>
+
+  <up-button type="primary" :plain="true" text="测试token" @click="getToken"></up-button>
 </template>
