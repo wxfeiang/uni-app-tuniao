@@ -10,9 +10,24 @@ interface userInfo {
 
 let userInfo = ref(<userInfo>{})
 const loginFrom = reactive({
-  username: "supadmin",
-  password: "12345677e"
+  username: "",
+  password: ""
 })
+const rules = {
+  username: {
+    type: "string",
+    required: true,
+    message: "请填用户名",
+    trigger: ["blur"]
+  },
+  password: {
+    type: "string",
+    required: true,
+    message: "请输入密码",
+    trigger: ["blur", "change"]
+  }
+}
+
 const Login = async () => {
   try {
     const config = {
@@ -21,6 +36,7 @@ const Login = async () => {
     const data = await http.post("/mock/sys/login", loginFrom, config) // 参数 空配置
     authStore.SETTIKEN(data.token)
     userInfo.value = data
+    uni.switchTab({ url: "/pages/home/index" })
   } catch (error) {}
 }
 const getToken = async () => {
@@ -36,5 +52,5 @@ const getToken = async () => {
 }
 
 export default () => {
-  return { Login, userInfo, getToken }
+  return { Login, userInfo, getToken, loginFrom, rules }
 }
