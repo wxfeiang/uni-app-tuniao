@@ -3,7 +3,7 @@ const { Login, userInfo, getToken, loginFrom, rules } = useAuth();
 </script>
 <template>
   <div class="warp_box">
-    <u-form labelPosition="left" :model="loginFrom" :rules="rules" ref="loginRules">
+    <u-form labelPosition="left" :model="loginFrom" :rules="rulesx" ref="loginRules">
       <u-form-item label="姓名" prop="username" borderBottom>
         <u-input v-model="loginFrom.username" border="none"></u-input>
       </u-form-item>
