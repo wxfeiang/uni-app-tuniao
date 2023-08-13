@@ -19,7 +19,7 @@ export default ({ command, mode }: ConfigEnv) => {
           /\.vue\?vue/ // .vue
         ],
         imports: ["vue", "uni-app"],
-        dirs: ["src/composables/**/*"],
+        dirs: ["src/composables/**/*", "src/pages/**/*"],
         dts: "typings/auto-imports.d.ts"
       }),
       Components({

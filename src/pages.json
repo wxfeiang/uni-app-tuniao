@@ -4,7 +4,7 @@
 		"custom": {
 			"^u--(.*)": "uview-plus/components/u-$1/u-$1.vue",
 			"^up-(.*)": "uview-plus/components/u-$1/u-$1.vue",
-	        "^u-([^-].*)": "uview-plus/components/u-$1/u-$1.vue"
+			"^u-([^-].*)": "uview-plus/components/u-$1/u-$1.vue"
 		}
 	},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
@@ -28,11 +28,11 @@
 		}
 	],
 	"tabBar": {
-        "color": "#7A7E83",
-        "selectedColor": "#435950",
-        "borderStyle": "black",
-        "backgroundColor": "#ffffff",
-        "list": [
+		"color": "#7A7E83",
+		"selectedColor": "#435950",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [
 			{
 				"pagePath": "pages/home/index",
 				"iconPath": "static/tabbar/shouye.png",
@@ -45,8 +45,27 @@
 				"selectedIconPath": "static/tabbar/wode.png",
 				"text": "我的"
 			}
-	]
-    },
+		]
+	},
+	"subPackages": [ //大的文件管理
+		{
+			"root": "subPages/subUser",  // pages 同级分包目录
+			"pages": [
+				{
+					"path": "about/index",
+					"style": {
+						"navigationBarTitleText": "关于我的"
+					}
+				},
+				{
+					"path": "vip/index",
+					"style": {
+						"navigationBarTitleText": "vip"
+					}
+				}
+			]
+		}
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
