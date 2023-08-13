@@ -1,6 +1,8 @@
 <script setup lang="ts">
 const { indexList, loadmore, goDetil } = useUser();
-onLoad(() => {
+onMounted(() => {
+  // vue3 生命周期也可以
+
   loadmore();
 });
 const scrolltolower = () => {
