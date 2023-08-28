@@ -1,5 +1,5 @@
 // stores/counter.js
-import { defineStore } from "pinia"
+//import { defineStore } from "pinia"
 // option 写法
 // export const useAuthStore = defineStore("authStore", {
 //   // state: () => {
