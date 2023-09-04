@@ -2,8 +2,8 @@
 eiang
  * @Description:
  * @Date: 2023-02-19 10:04:58
- * @LastEditTime: 2023-06-12 15:15:26
- * @FilePath: /vue3template/commitlint.config.js
+ * @LastEditTime: 2023-09-04 16:05:04
+ * @FilePath: /uni-app-ts/commitlint.config.js
  */
 module.exports = {
   extends: ['@commitlint/config-conventional', 'cz'],
@@ -12,21 +12,21 @@ module.exports = {
       2,
       'always',
       [
-        'feature', // 新功能（feature）
-        'bug', // 此项特别针对bug号，用于向测试反馈bug列表的bug修改情况
-        'fix', // 修补bug
-        'ui', // 更新 ui
-        'docs', // 文档（documentation）
-        'style', // 格式（不影响代码运行的变动）
-        'perf', // 性能优化
-        'release', // 发布
-        'deploy', // 部署
-        'refactor', // 重构（即不是新增功能，也不是修改bug的代码变动）
-        'test', // 增加测试
-        'chore', // 构建过程或辅助工具的变动
-        'revert', // feat(pencil): add ‘graphiteWidth’ option (撤销之前的commit)
-        'merge', // 合并分支， 例如： merge（前端页面）： feature-xxxx修改线程地址
-        'build', // 打包
+        'feature',
+        'fix',
+        "docs",
+        "style",
+        'refactor',
+        'refactor',
+        'test',
+        'build',
+        'ci',
+        'revert',
+        'chore'
+
+
+
+
       ],
     ],
     // <type> 格式 小写
