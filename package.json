@@ -36,7 +36,13 @@
     "build:quickapp-webview": "uni build -p quickapp-webview",
     "build:quickapp-webview-huawei": "uni build -p quickapp-webview-huawei",
     "build:quickapp-webview-union": "uni build -p quickapp-webview-union",
-    "type-check": "vue-tsc --noEmit"
+    "type-check": "vue-tsc --noEmit",
+    "eslint:comment": "使用 ESLint 检查并自动修复 src 目录下所有扩展名为 .js 和 .vue 的文件",
+    "eslint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
+    "prettier:comment": "自动格式化当前目录下的所有文件",
+    "prettier": "prettier --write",
+    "commit:comment": "引导设置规范化的提交信息",
+    "commit": "git-cz"
   },
   "dependencies": {
     "@dcloudio/uni-app": "3.0.0-3080720230703001",
@@ -58,6 +64,7 @@
     "vue-i18n": "^9.2.2"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^0.41.0",
     "@dcloudio/types": "^3.3.3",
     "@dcloudio/uni-automator": "3.0.0-3080720230703001",
     "@dcloudio/uni-cli-shared": "3.0.0-3080720230703001",
@@ -66,6 +73,18 @@
     "@vue/tsconfig": "^0.1.3",
     "clipboard": "^2.0.11",
     "dayjs": "^1.11.9",
+    "@commitlint/cli": "^17.6.3",
+    "@commitlint/config-conventional": "^17.6.3",
+    "commitizen": "^4.3.0",
+    "commitlint-config-cz": "^0.13.3",
+    "cz-conventional-changelog": "^3.3.0",
+    "cz-customizable": "^7.0.0",
+    "eslint": "^8.40.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.12.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
     "pinia": "2.0.36",
     "pinia-plugin-persist-uni": "^1.2.0",
     "sass": "^1.64.2",
@@ -76,5 +95,16 @@
     "uview-plus": "^3.1.35",
     "vite": "4.0.4",
     "vue-tsc": "^1.8.8"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    }
+  },
+  "lint-staged": {
+    "src/**/*/.{js,vue}": [
+      "eslint --fix",
+      "git add"
+    ]
   }
 }
