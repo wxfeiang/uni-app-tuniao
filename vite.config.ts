@@ -1,7 +1,7 @@
 import uni from '@dcloudio/vite-plugin-uni';
+import * as path from 'path';
 import type { ConfigEnv } from 'vite';
 import { loadEnv } from 'vite';
-
 // 加上下面这一行
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
@@ -34,6 +34,12 @@ export default ({ command, mode }: ConfigEnv) => {
         resolvers: [],
       }),
     ],
+    resolve: {
+      //设置别名
+      alias: {
+        '@': path.resolve(__dirname, 'src'),
+      },
+    },
     server: {
       host: '0.0.0.0',
       // 端口

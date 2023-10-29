@@ -12,9 +12,9 @@
     "lib": ["esnext", "dom"],
     "skipLibCheck": true,
     "types": [
+      "node",
+     "@tuniao/tnui-vue3-uniapp/global.d.ts",
       "@dcloudio/types",
-      "@ttou/uview-typings/v26",
-      "@ttou/uview-typings/refs",
       "pinia-plugin-persist-uni"
     ],
     "baseUrl": ".",

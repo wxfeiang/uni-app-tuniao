@@ -1,8 +1,7 @@
-declare module "uview-plus" {
-  global {
-    interface Uni {
-      $u: any
-    }
-  }
-}
-s
+// declare module 'uview-plus' {
+//   global {
+//     interface Uni {
+//       $u: any;
+//     }
+//   }
+// }
