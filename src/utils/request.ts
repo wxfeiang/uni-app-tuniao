@@ -1,6 +1,8 @@
+import { useAuthStore } from '@/stores/authStore';
 import axios, { AxiosRequestConfig, InternalAxiosRequestConfig } from 'axios';
 import mpAdapter from 'axios-miniprogram-adapter';
 
+const authStore = useAuthStore(); //FIX: 一
 interface IOptions {
   loading?: boolean;
   message?: boolean;
@@ -45,10 +47,8 @@ export default class Axios {
           // });
         }
         // if (this.options.clearValidateError) useErrorStore().resetError();
-        // config.headers.Accept = 'application/json';
-        // config.headers.Authorization = `Bearer ${storage.get(
-        //   CacheEnum.TOKEN_NAME,
-        // )}`;
+        config.headers.Accept = 'application/json';
+        config.headers.Authorization = 'Bearer ' + authStore.token;
 
         return config;
       },
@@ -61,6 +61,7 @@ export default class Axios {
   private interceptorsResponse() {
     this.instance.interceptors.response.use(
       (response) => {
+        console.log('🍇[response]:', response);
         if (this.loading) {
           this.loading.close();
           this.loading = undefined;
@@ -73,6 +74,7 @@ export default class Axios {
           //   grouping: true,
           //   duration: 2000,
           // });
+          console.log('🍣', 'chengogneg le ===');
         }
 
         this.options = {
