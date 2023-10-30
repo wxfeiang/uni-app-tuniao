@@ -8,4 +8,5 @@ const { Login, userInfo, getToken, loginFrom, rules } = useAuth();
   <view class="tn-text-ellipsis-1">
     sv sfvsdfoivhso'difjvopshfviousdf povjs pofvosifnvpo sjf iopvwa'oifhvo aejfv [osanf pi
   </view>
+  <Down />
 </template>
