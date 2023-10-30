@@ -40,11 +40,9 @@ export default class Axios {
     this.instance.interceptors.request.use(
       (config: InternalAxiosRequestConfig) => {
         if (!this.loading && this.options.loading) {
-          console.log('🥛', 'loading==========');
-          // this.loading = ElLoading.service({
-          //   background: 'rgba(255,255,255,0.1)',
-          //   fullscreen: true,
-          // });
+          uni.showLoading({
+            title: '加载中',
+          });
         }
         // if (this.options.clearValidateError) useErrorStore().resetError();
         config.headers.Accept = 'application/json';
@@ -60,21 +58,17 @@ export default class Axios {
 
   private interceptorsResponse() {
     this.instance.interceptors.response.use(
-      (response) => {
-        console.log('🍇[response]:', response);
+      (response: any) => {
         if (this.loading) {
-          this.loading.close();
+          uni.hideLoading();
           this.loading = undefined;
         }
         const message = response.data?.message ?? response.data?.success;
         if (message && this.options.message) {
-          // ElMessage({
-          //   type: 'success',
-          //   message,
-          //   grouping: true,
-          //   duration: 2000,
-          // });
-          console.log('🍣', 'chengogneg le ===');
+          uni.showToast({
+            title: message,
+            icon: 'none',
+          });
         }
 
         this.options = {
@@ -84,9 +78,9 @@ export default class Axios {
         };
         return response;
       },
-      (error) => {
+      (error: any) => {
         if (this.loading) {
-          this.loading.close();
+          uni.hideLoading();
           this.loading = undefined;
         }
         this.options = {
