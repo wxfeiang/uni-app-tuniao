@@ -6,23 +6,33 @@
 		  }
 	},
 	"pages": [
-
 		{
 			"path": "pages/home/index",
+			"name":"Home",
 			"style": {
 				"navigationBarTitleText": "首页"
 			}
 		},
 		{
 			"path": "pages/login/index",
+			"name":"Login",
 			"style": {
 				"navigationBarTitleText": "登陆"
 			}
 		},
+
 		{
 			"path": "pages/user/index",
+			"name":"user",
 			"style": {
 				"navigationBarTitleText": "我的"
+			}
+		},
+		{
+			"path": "pages/test/index",
+			"name":"test",
+			"style": {
+				"navigationBarTitleText": "测试"
 			}
 		}
 	],

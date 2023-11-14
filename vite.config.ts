@@ -3,9 +3,9 @@ import * as path from 'path';
 import type { ConfigEnv } from 'vite';
 import { loadEnv } from 'vite';
 // 加上下面这一行
+import TransformPages from 'uni-read-pages-vite';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
-
 // import { parseEnv } from "./.env"
 
 export default ({ command, mode }: ConfigEnv) => {
@@ -21,7 +21,15 @@ export default ({ command, mode }: ConfigEnv) => {
           /\.vue$/,
           /\.vue\?vue/, // .vue
         ],
-        imports: ['vue', 'uni-app', 'pinia'],
+        imports: [
+          'vue',
+          'uni-app',
+          'pinia',
+          {
+            from: 'uni-mini-router',
+            imports: ['createRouter', 'useRouter', 'useRoute'],
+          },
+        ],
         dirs: ['src/composables/**/*', 'src/pages/**/*'],
         dts: 'typings/auto-imports.d.ts',
       }),
@@ -34,6 +42,9 @@ export default ({ command, mode }: ConfigEnv) => {
         resolvers: [],
       }),
     ],
+    define: {
+      ROUTES: new TransformPages().routes,
+    },
     resolve: {
       //设置别名
       alias: {
