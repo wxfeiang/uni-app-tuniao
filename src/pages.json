@@ -6,21 +6,21 @@
 		  }
 	},
 	"pages": [
-
 		{
 			"path": "pages/home/index",
-			"name":"home",
+			"name":"Home",
 			"style": {
 				"navigationBarTitleText": "首页"
 			}
 		},
 		{
 			"path": "pages/login/index",
-			"name":"login",
+			"name":"Login",
 			"style": {
 				"navigationBarTitleText": "登陆"
 			}
 		},
+
 		{
 			"path": "pages/user/index",
 			"name":"user",

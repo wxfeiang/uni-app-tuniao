@@ -1,23 +1,20 @@
-<script setup lang="ts">
-const { Login, userInfo, getToken, loginFrom, rules } = useAuth();
-</script>
-<template>
-  <div class="warp_box">
-    <u-form labelPosition="left" :model="loginFrom" :rules="rules" ref="loginRules">
-      <u-form-item label="姓名" prop="username" borderBottom>
-        <u-input v-model="loginFrom.username" border="none"></u-input>
-      </u-form-item>
-      <u-form-item label="密码" prop="password" borderBottom>
-        <u-input v-model="loginFrom.password" border="none"></u-input>
-      </u-form-item>
-    </u-form>
-  </div>
-  <up-button type="primary" text="测试登录" @click="Login"></up-button>
+<script lang="ts" setup>
+const { Login, userInfo, tesToken, loginFrom, rules } = useAuth();
+const router = useRouter();
 
-  <up-button type="primary" :plain="true" text="测试token" @click="getToken"></up-button>
-</template>
-<style>
-.warp_box {
-  margin: 50upx auto;
+//FIX: 只能在 vue 中使用路由插件
+function goto() {
+  router.push({ name: "test" });
 }
-</style>
+</script>
+
+<template>
+  <tn-button @click="Login">提交</tn-button>
+
+  <view class="tn-text-ellipsis-1">
+    sv sfvsdfoivhso'difjvopshfviousdf povjs pofvosifnvpo sjf iopvwa'oifhvo aejfv [osanf pi
+  </view>
+
+  <tn-button @click="tesToken">测试登录</tn-button>
+  <tn-button @click="goto">路由跳转</tn-button>
+</template>
