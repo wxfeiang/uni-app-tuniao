@@ -66,6 +66,7 @@
     "@types/lodash-es": "^4.17.11",
     "alova": "^2.13.1",
     "lodash-es": "^4.17.21",
+    "uni-mini-router": "^0.1.5",
     "vue": "^3.3.8",
     "vue-demi": "^0.14.6",
     "vue-i18n": "^9.6.5"
