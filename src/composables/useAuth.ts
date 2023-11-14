@@ -1,8 +1,10 @@
+import { router } from '@/router'; // js文件使用方法
 import { login, testToken } from '@/services/api/auth';
 import { useAuthStore } from '@/store/authStore';
 const authStore = useAuthStore();
 //
 import { useRequest } from 'alova';
+
 interface userInfo {
   name: string;
   id: number;
@@ -34,6 +36,7 @@ const { send: sendLogin } = useRequest(login(loginFrom), {
 const Login = async () => {
   sendLogin().then((res: any) => {
     authStore.SETTIKEN(res.token);
+    router.push({ name: 'test' });
   });
 };
 const { send: tesToken } = useRequest(testToken, {
