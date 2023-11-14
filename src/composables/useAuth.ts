@@ -1,56 +1,44 @@
-import { useAuthStore } from "@/stores/authStore"
-const authStore = useAuthStore()
-const http = uni.$u.http
-
+import { login, testToken } from '@/services/api/auth';
+import { useAuthStore } from '@/store/authStore';
+const authStore = useAuthStore();
 //
+import { useRequest } from 'alova';
 interface userInfo {
-  name: string
-  id: number
+  name: string;
+  id: number;
 }
 
-let userInfo = ref(<userInfo>{})
+let userInfo = ref(<userInfo>{});
 const loginFrom = reactive({
-  username: "",
-  password: ""
-})
+  username: 'admin',
+  password: '123456',
+});
 const rules = {
   username: {
-    type: "string",
+    type: 'string',
     required: true,
-    message: "请填用户名",
-    trigger: ["blur"]
+    message: '请填用户名',
+    trigger: ['blur'],
   },
   password: {
-    type: "string",
+    type: 'string',
     required: true,
-    message: "请输入密码",
-    trigger: ["blur", "change"]
-  }
-}
+    message: '请输入密码',
+    trigger: ['blur', 'change'],
+  },
+};
+const { send: sendLogin } = useRequest(login(loginFrom), {
+  immediate: false,
+});
 
 const Login = async () => {
-  try {
-    const config = {
-      custom: { toast: true }
-    }
-    const data = await http.post("/mock/sys/login", loginFrom, config) // 参数 空配置
-    authStore.SETTIKEN(data.token)
-    userInfo.value = data
-    uni.switchTab({ url: "/pages/home/index" })
-  } catch (error) {}
-}
-const getToken = async () => {
-  try {
-    const config = {
-      params: {}, // 提交参数 params  url拼接
-      custom: { auth: true, toast: true }
-    }
-    const data = await http.get("/users/testtoken", config)
-  } catch (error) {
-    console.log("🍲[error]:", error)
-  }
-}
-
+  sendLogin().then((res: any) => {
+    authStore.SETTIKEN(res.token);
+  });
+};
+const { send: tesToken } = useRequest(testToken, {
+  immediate: false,
+});
 export default () => {
-  return { Login, userInfo, getToken, loginFrom, rules }
-}
+  return { Login, userInfo, tesToken, loginFrom, rules };
+};
