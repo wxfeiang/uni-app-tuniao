@@ -1,8 +1,10 @@
 <script lang="ts" setup>
-import { ref } from "vue";
-
 const currentTabbar = ref(0);
+const router = useRouter();
 
+function goto() {
+  router.push({ name: "Login" });
+}
 // 导航栏数据
 const tabbarData = [
   {
@@ -34,8 +36,10 @@ const tabbarData = [
 </script>
 
 <template>
+  内容ActionSheet
+  <tn-button @click="goto">去登录</tn-button>
+  <!-- 底部导航栏 -->
   <tn-tabbar v-model="currentTabbar" fixed switch-animation>
-    <!-- 导航栏 -->
     <tn-tabbar-item
       v-for="(item, index) in tabbarData"
       :key="index"

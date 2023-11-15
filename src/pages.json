@@ -9,6 +9,9 @@
 		{
 			"path": "pages/home/index",
 			"name":"Home",
+			"meta": {
+				"ignoreAuth": true
+			},
 			"style": {
 				"navigationBarTitleText": "首页"
 			}

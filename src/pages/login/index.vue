@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-const { Login, userInfo, tesToken, loginFrom, rules } = useAuth();
+const { Login, userInfo, tesToken, loginFrom, rules, authInfo } = useAuth();
 const router = useRouter();
 
 //FIX: 只能在 vue 中使用路由插件
 function goto() {
-  router.push({ name: "test" });
+  router.push({ name: "Home" });
 }
 </script>
 
@@ -17,4 +17,6 @@ function goto() {
 
   <tn-button @click="tesToken">测试登录</tn-button>
   <tn-button @click="goto">路由跳转</tn-button>
+  登录后响应式数据展示
+  {{ authInfo }}
 </template>

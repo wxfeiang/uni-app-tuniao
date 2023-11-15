@@ -39,9 +39,10 @@ const Login = async () => {
     router.push({ name: 'test' });
   });
 };
-const { send: tesToken } = useRequest(testToken, {
+const { send: tesToken, data: authInfo } = useRequest(testToken, {
   immediate: false,
+  initialData: {},
 });
 export default () => {
-  return { Login, userInfo, tesToken, loginFrom, rules };
+  return { Login, userInfo, tesToken, loginFrom, rules, authInfo };
 };

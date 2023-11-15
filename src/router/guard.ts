@@ -11,10 +11,10 @@ function createBeforeEachGuard(router: Router) {
       next();
     } else if (!authStore.isLogin && to && to.name !== 'Login') {
       // 如果没有登录且目标路由不是登录页面则跳转到登录页面
-      // 将目标路由和参数传入登录页面，登录成功后直接跳转到目标路由，优化体验
+      // TODO:将目标路由和参数传入登录页面，登录成功后直接跳转到目标路由，优化体验
       next({
         name: 'Login',
-        params: { redirect: to.name!, tabBar: to?.meta?.tabBar, ...to.query },
+        params: { redirect: to.name!, ...to.query },
         navType: 'push',
       });
     } else if (authStore.isLogin && to && to.name === 'Login') {
@@ -35,7 +35,7 @@ function createAfterEachGuard(router: Router) {
       // 如果没有登录且目标路由不是登录页面则跳转到登录页面
       router.push({
         name: 'Login',
-        params: { tabBar: to?.meta?.tabBar, ...to.query },
+        params: { ...to.query },
       });
     } else if (authStore.isLogin && to && to.name === 'Login') {
       // 如果已经登录且目标页面是登录页面则跳转至首页
