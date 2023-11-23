@@ -1,8 +1,10 @@
 {
 	"easycom": {
+		"autoscan": true,
 		"custom": {
 			"^tn-(.*)-(item|group)$": "@tuniao/tnui-vue3-uniapp/components/$1/src/$1-$2.vue",
-			"^tn-(.*)": "@tuniao/tnui-vue3-uniapp/components/$1/src/$1.vue"
+			"^tn-(.*)": "@tuniao/tnui-vue3-uniapp/components/$1/src/$1.vue" //,
+			// "^dy-(.*)": "@/components/dy-$1.vue" ,// 匹配components目录内的vue文件
 		  }
 	},
 	"pages": [

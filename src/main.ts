@@ -4,6 +4,7 @@ import piniaPersist from 'pinia-plugin-persist-uni';
 import { createSSRApp } from 'vue';
 import { setupRouter } from './router';
 // #ifdef VUE3
+import 'uno.css';
 import App from './App.vue';
 // import { initRequest } from "./utils/request"
 export function createApp() {

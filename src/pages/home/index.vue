@@ -38,6 +38,7 @@ const tabbarData = [
 <template>
   内容ActionSheet
   <tn-button @click="goto">去登录</tn-button>
+
   <!-- 底部导航栏 -->
   <tn-tabbar v-model="currentTabbar" fixed switch-animation>
     <tn-tabbar-item

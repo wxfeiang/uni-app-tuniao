@@ -40,6 +40,8 @@ export function checkStatus(status: number, msg: string): void {
       errMessage = 'http版本不支持该请求!';
       break;
     default:
+      errMessage = `${msg}`;
+      break;
   }
 
   if (errMessage) {

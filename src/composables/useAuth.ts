@@ -5,16 +5,6 @@ const authStore = useAuthStore();
 //
 import { useRequest } from 'alova';
 
-interface userInfo {
-  name: string;
-  id: number;
-}
-
-let userInfo = ref(<userInfo>{});
-const loginFrom = reactive({
-  username: 'admin',
-  password: '123456',
-});
 const rules = {
   username: {
     type: 'string',
@@ -29,14 +19,19 @@ const rules = {
     trigger: ['blur', 'change'],
   },
 };
-const { send: sendLogin } = useRequest(login(loginFrom), {
+const loginFrom = ref(<LoginParams>{
+  username: '',
+  password: '',
+});
+
+const { send: sendLogin } = useRequest(login(loginFrom.value), {
   immediate: false,
 });
 
 const Login = async () => {
   sendLogin().then((res: any) => {
     authStore.SETTIKEN(res.token);
-    router.push({ name: 'test' });
+    router.push({ name: 'Home' });
   });
 };
 const { send: tesToken, data: authInfo } = useRequest(testToken, {
@@ -44,5 +39,5 @@ const { send: tesToken, data: authInfo } = useRequest(testToken, {
   initialData: {},
 });
 export default () => {
-  return { Login, userInfo, tesToken, loginFrom, rules, authInfo };
+  return { Login, tesToken, loginFrom, rules, authInfo };
 };

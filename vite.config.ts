@@ -7,13 +7,18 @@ import TransformPages from 'uni-read-pages-vite';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 // import { parseEnv } from "./.env"
-
+import presetUno from '@unocss/preset-uno';
+import Unocss from 'unocss/vite';
 export default ({ command, mode }: ConfigEnv) => {
   console.log('🍔[command]:', command);
   const env = loadEnv(mode, __dirname);
   const result = {
     plugins: [
       uni(),
+
+      Unocss({
+        presets: [presetUno()],
+      }),
       // 加上下面的配置
       AutoImport({
         include: [
