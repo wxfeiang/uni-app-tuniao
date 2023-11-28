@@ -38,8 +38,8 @@ export function getEnvValue<T = string>(key: keyof ImportMetaEnv): T {
   return (envValue === 'true'
     ? true
     : envValue === 'false'
-    ? false
-    : envValue) as unknown as T;
+      ? false
+      : envValue) as unknown as T;
 }
 
 /**
