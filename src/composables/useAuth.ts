@@ -21,7 +21,6 @@ const rules = {
 };
 const loginFrom = ref(<LoginParams>{
   username: '',
-  password: '',
 });
 
 const { send: sendLogin } = useRequest(login(loginFrom.value), {
