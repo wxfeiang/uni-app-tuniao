@@ -71,6 +71,7 @@
     "uni-mini-router": "^0.1.6",
     "unocss": "^0.57.7",
     "unocss-preset-weapp": "^0.57.1",
+    "vite": "^5.0.11",
     "vue": "^3.4.3",
     "vue-demi": "^0.14.6",
     "vue-i18n": "^9.8.0"
@@ -109,7 +110,6 @@
     "uni-read-pages-vite": "^0.0.6",
     "unplugin-auto-import": "^0.16.7",
     "unplugin-vue-components": "^0.25.2",
-    "vite": "^4.0.3",
     "vue-tsc": "^1.8.27"
   },
   "config": {

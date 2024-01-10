@@ -28,6 +28,7 @@ const { send: sendLogin } = useRequest(login(loginFrom.value), {
 });
 const { send: sendLogin2 } = login2(loginFrom.value, {
   immediate: false,
+  loading: false,
 });
 
 const Login = async () => {
@@ -38,7 +39,7 @@ const Login = async () => {
   });
 };
 const { send: tesToken, data: authInfo } = useRequest(testToken, {
-  immediate: false,
+  immediate: false, // 默认不发出请求
   initialData: {},
 });
 export default () => {
